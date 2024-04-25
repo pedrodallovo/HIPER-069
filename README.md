@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def generate_diagram(data):
-  """
+  
   Generates a hierarchical diagram from the provided data.
 
   Args:
@@ -14,7 +14,7 @@ def generate_diagram(data):
         "PastaDestino": str (optional),
         "PastaBackup": str (optional)
       }
-  """
+  
 
   G = nx.DiGraph()
 
