@@ -1,33 +1,24 @@
 # HIPER-069
-
-
-
 import networkx as nx
 import matplotlib.pyplot as plt
 
 def generate_diagram(data):
-  
-  
-  
-      {
-        "Aplicacao": str,
-        "PastaOrigem": str,
-        "PastaDestino": str (optional),
-        "PastaBackup": str (optional)
-      }
-  
 
-  G = nx.DiGraph()
+ G = nx.DiGraph()
 
+  
   for app in data:
     app_name = app["Aplicacao"]
     G.add_node(app_name, shape="box")
-
+    
+   
     G.add_edge(app["PastaOrigem"].lower(), app_name)
 
+    
     if "PastaDestino" in app:
       G.add_edge(app_name, app["PastaDestino"].lower())
 
+    
     if "PastaBackup" in app:
       for other_app in data:
         if other_app["PastaDestino"] and other_app["PastaDestino"].lower() == app["PastaBackup"].lower():
@@ -35,6 +26,7 @@ def generate_diagram(data):
 
   pos = nx.nx_agraph.graphviz_layout(G, prog="dot", args="-Grankdir=LR")
 
+ 
   nx.draw(G, pos, with_labels=True, node_size=2000, node_color="lightblue", font_size=8)
   edge_labels = nx.get_edge_attributes(G, "style")
   nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=6)
@@ -49,6 +41,8 @@ data = [
 ]
 
 generate_diagram(data)
+
+
 
 
 #(Importar Bibliotecas: Importamos o networkx para criação e manipulação de graficos, e o matplotlib.pyplot para visualização.
