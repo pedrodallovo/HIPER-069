@@ -7,10 +7,8 @@ import matplotlib.pyplot as plt
 
 def generate_diagram(data):
   
-  Generates a hierarchical diagram from the provided data.
-
-  Args:
-    data: A list of dictionaries, each representing an application with the following structure:
+  
+  
       {
         "Aplicacao": str,
         "PastaOrigem": str,
